@@ -8,7 +8,7 @@ namespace Infrastructure.Bot
 {
     public interface IBotResponseStrategy
     {
-        string GetResponse();
+        Task<string> GetResponse();
     }
 
 }

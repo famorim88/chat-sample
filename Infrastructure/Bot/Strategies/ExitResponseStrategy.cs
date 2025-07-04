@@ -8,7 +8,7 @@ namespace Infrastructure.Bot.Strategies
 {
     public class ExitResponseStrategy : IBotResponseStrategy
     {
-        public string GetResponse() => "Encerrando a conversa. Até logo!";
+        public async Task<string> GetResponse() => await Task.FromResult("Encerrando a conversa. Até logo!");
     }
 
 }

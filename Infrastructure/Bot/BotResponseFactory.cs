@@ -14,11 +14,17 @@ namespace Infrastructure.Bot
 
     public class BotResponseFactory : IBotResponseFactory
     {
+        private readonly HttpClient _http;
+        public BotResponseFactory(HttpClient http) 
+        {
+        _http = http;
+        }
+
         public IBotResponseStrategy GetStrategy(string userInput)
         {
             if (userInput.Trim().ToLower() == "sair")
                 return new ExitResponseStrategy();
-            return new RandomResponseStrategy();
+            return new RandomResponseStrategy(_http);
         }
     }
 

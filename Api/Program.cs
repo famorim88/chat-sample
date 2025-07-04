@@ -5,6 +5,7 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using FluentValidation;
 using Shared.Behaviors;
+using Infrastructure.Bot.Strategies;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -25,6 +26,7 @@ builder.Services.AddDbContext<ChatDbContext>(options =>
 // DI
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IBotResponseFactory, BotResponseFactory>();
+builder.Services.AddHttpClient<RandomResponseStrategy>();
 
 var app = builder.Build();
 app.UseSwagger();

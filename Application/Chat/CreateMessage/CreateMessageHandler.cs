@@ -29,7 +29,7 @@ namespace Application.Chat.CreateMessage
             _context.Messages.Add(userMsg);
 
             var botStrategy = _botFactory.GetStrategy(request.Text);
-            var botResponseText = botStrategy.GetResponse();
+            var botResponseText = await botStrategy.GetResponse();
             var botMsg = new Message { Text = botResponseText, Sender = SenderType.Bot };
             _context.Messages.Add(botMsg);
 
