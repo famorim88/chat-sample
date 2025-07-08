@@ -6,7 +6,7 @@ public class Message
     public Guid Id { get; set; }
     public string Text { get; set; } = string.Empty;
     public DateTime Timestamp { get; set; }
-    public int Sender { get; set; } = 1;
+    public int Sender { get; set; } = 0;
 
     public static Message CreateUserMessage(string text)
     {

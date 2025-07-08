@@ -27,7 +27,7 @@ public class CreateMessageHandler : IRequestHandler<CreateMessageCommand, List<M
     public async Task<List<MessageResponse>> Handle(CreateMessageCommand request, CancellationToken cancellationToken)
     {
         var userMsg = Message.CreateUserMessage(request.Text);
-        var botMsg = Message.CreateUserMessage(await _botFactory.Resolve(request.Text).GetResponse());
+        var botMsg = Message.CreateBotMessage(await _botFactory.Resolve(request.Text).GetResponse());
 
         _repo.Add(userMsg);
         _repo.Add(botMsg);
