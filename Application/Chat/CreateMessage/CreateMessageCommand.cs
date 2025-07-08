@@ -1,4 +1,6 @@
-﻿using Domain.Entites;
+﻿using Application.Chat.DTOs;
+using Domain.Entites;
+using Domain.Entities;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -8,6 +10,6 @@ using System.Threading.Tasks;
 
 namespace Application.Chat.CreateMessage
 {
-    public record CreateMessageCommand(string Text) : IRequest<List<Message>>;
+    public record CreateMessageCommand(string Text) : IRequest<List<MessageResponse>>;
 
 }

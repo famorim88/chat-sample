@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace Infrastructure.Bot.Strategies
 {
@@ -25,7 +21,7 @@ namespace Infrastructure.Bot.Strategies
             "Estou aqui para ajudar."
     };
 
-        public async Task<string >GetResponse()
+        public async Task<string>GetResponse()
         {
             var rnd = new Random();
             var value = Responses[rnd.Next(Responses.Length)];

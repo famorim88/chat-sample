@@ -1,5 +1,4 @@
-﻿using Application.Chat.CreateMessage;
-using MediatR;
+﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers

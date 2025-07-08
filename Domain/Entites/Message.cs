@@ -1,11 +1,35 @@
-﻿namespace Domain.Entites
+﻿namespace Domain.Entities
 {
-    public class Message
+
+public class Message
+{
+    public Guid Id { get; set; }
+    public string Text { get; set; } = string.Empty;
+    public DateTime Timestamp { get; set; }
+    public string Sender { get; set; } = "User";
+
+    public static Message CreateUserMessage(string text)
     {
-        public Guid Id { get; set; } = Guid.NewGuid();
-        public string Text { get; set; } = string.Empty;
-        public DateTime Timestamp { get; set; } = DateTime.UtcNow;
-        public SenderType Sender { get; set; }
+        return new Message
+        {
+            Id = Guid.NewGuid(),
+            Text = text,
+            Timestamp = DateTime.UtcNow,
+            Sender = "User"
+        };
     }
+
+    public static Message CreateBotMessage(string text)
+    {
+        return new Message
+        {
+            Id = Guid.NewGuid(),
+            Text = text,
+            Timestamp = DateTime.UtcNow,
+            Sender = "Bot"
+        };
+    }
+}
+
 
 }
