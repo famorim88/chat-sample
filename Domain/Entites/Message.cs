@@ -6,7 +6,7 @@ public class Message
     public Guid Id { get; set; }
     public string Text { get; set; } = string.Empty;
     public DateTime Timestamp { get; set; }
-    public string Sender { get; set; } = "User";
+    public int Sender { get; set; } = 1;
 
     public static Message CreateUserMessage(string text)
     {
@@ -15,7 +15,7 @@ public class Message
             Id = Guid.NewGuid(),
             Text = text,
             Timestamp = DateTime.UtcNow,
-            Sender = "User"
+            Sender = 0
         };
     }
 
@@ -26,7 +26,7 @@ public class Message
             Id = Guid.NewGuid(),
             Text = text,
             Timestamp = DateTime.UtcNow,
-            Sender = "Bot"
+            Sender = 1
         };
     }
 }

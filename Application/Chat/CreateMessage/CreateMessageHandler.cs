@@ -21,12 +21,12 @@ namespace Application.Chat.CreateMessage
 
         public async Task<List<MessageResponse>> Handle(CreateMessageCommand request, CancellationToken cancellationToken)
         {
-            var userMsg = new Message { Text = request.Text, Sender = SenderType.User.ToString() };
+            var userMsg = new Message { Text = request.Text, Sender = (int)SenderType.User };
             _context.Messages.Add(userMsg);
 
             var botStrategy = _botFactory.Resolve(request.Text);
             var botResponseText = await botStrategy.GetResponse();
-            var botMsg = new Message { Text = botResponseText, Sender = SenderType.Bot.ToString() };
+            var botMsg = new Message { Text = botResponseText, Sender = (int)SenderType.Bot };
             _context.Messages.Add(botMsg);
 
             await _uow.CommitAsync();
